@@ -2,8 +2,8 @@
 /Application/Common/Conf/config.php
 /Runtime/*
 /*.sh
-/.idea
 /Application/Install/Data/install.lock
 /Runtime
 /_runtime
+.idea/*
 /Data
