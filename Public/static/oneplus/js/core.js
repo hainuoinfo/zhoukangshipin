@@ -8,7 +8,6 @@ $(function () {
     ucard();//绑定用户小名片
     bindGoTop();//回到顶部
     checkMessage();//检查一次消息
-
     if (is_login()) {
         bindMessageChecker();//绑定用户消息
     }
@@ -548,5 +547,46 @@ function bindLogout() {
                 location.href = msg.url;
             }, 1500);
         }, 'json')
+    });
+}
+function bindSupport() {
+    $('.support_btn').unbind('click');
+    $('.support_btn').click(function () {
+        event.stopPropagation();
+        var me=$(this);
+        if (MID == 0) {
+            op_error('请在登陆后再点赞。即将跳转到登陆页。', '温馨提示');
+            setTimeout(function () {
+                location.href = U('Home/User/Login');
+            }, 1500);
+            return;
+        } else {
+            var row = $(this).attr('row');
+            var table = $(this).attr('table');
+            var uid = $(this).attr('uid');
+            var jump = $(this).attr('jump');
+            $.post(SUPPORT_URL, {appname: MODULE_NAME, row: row, table: table,uid:uid,jump:jump}, function (msg) {
+                if (msg.status) {
+                    var num_tag = $('#support_' + MODULE_NAME + '_' + table + '_' + row);
+                    var pos = $('#support_' + MODULE_NAME + '_' + table + '_' + row + '_pos');
+                    if (pos.text() == '') {
+                        var html = '<span id="' + '#support_' + MODULE_NAME + '_' + table + '_' + row + '">1</span>';
+                        pos.html('&nbsp;( '+html+'&nbsp;)');
+
+                    } else {
+                        var num = num_tag.text();
+                        num++;
+                        num_tag.text(num);
+                    }
+                    me.attr({'style':'color:#ccc'});
+                    op_success(msg.info, '温馨提示');
+
+                } else {
+                    op_error(msg.info, '温馨提示');
+                }
+
+            }, 'json');
+        }
+
     });
 }

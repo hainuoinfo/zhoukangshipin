@@ -11,7 +11,7 @@ namespace Weibo\Api;
 use Common\Api\Api;
 use Common\Exception\ApiException;
 
-require_once(APP_PATH . 'Weibo/Common/function.php');
+
 
 class WeiboApi extends Api
 {
@@ -32,6 +32,7 @@ class WeiboApi extends Api
         $map = array('status' => 1);
         $model = $this->weiboModel;
         $list = $model->where($map)->order('is_top desc,create_time desc')->page($page, $count)->select();
+
 
         //获取每个微博详情
         foreach ($list as &$e) {
@@ -194,6 +195,7 @@ class WeiboApi extends Api
     {
         $weibo = $this->weiboModel->find($id);
         $canDelete = $this->canDeleteWeibo($id);
+
         return array(
             'id' => intval($weibo['id']),
             'content' => strval($weibo['content']),
@@ -202,7 +204,9 @@ class WeiboApi extends Api
             'can_delete' => boolval($canDelete),
             'user' => $this->getUserStructure($weibo['uid']),
             'is_top' => $weibo['is_top'],
+            'uid'=>$weibo['uid']
         );
+
     }
 
     private function getCommentStructure($id)

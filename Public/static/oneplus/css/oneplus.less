@@ -1,5 +1,7 @@
 @import "../../bootstrap/css/variables";
-
+.navbar-logo{
+  padding-left: 0;
+}
 body {
   font-family: "Microsoft YaHei";
 }
@@ -29,6 +31,13 @@ a:hover {
   -moz-box-shadow: 0 0 5px #CCCCCC;
   -khtml-box-shadow: 0 0 5px #CCCCCC;
 }
+
+.boxShadowBorder {
+  .boxShadow;
+  border: 1px solid #dddddd;
+  border-radius: 0.2em;
+}
+
 /*头衔*/
 .rank_html {
   width: 18px;
@@ -43,13 +52,15 @@ a:hover {
   width: 100%;
   margin: auto;
 }
-.tb_rank td,.tb_rank th{
-  padding:5px 10px;
+
+.tb_rank td, .tb_rank th {
+  padding: 5px 10px;
   border: 1px solid #ccc;
   border-left: none;
   border-right: none;
   color: #555;
 }
+
 /*头衔end*/
 
 .oneuser-title-hr {
@@ -66,6 +77,10 @@ a:hover {
 
 .navbar-nav > li > a {
   line-height: 28px;
+}
+
+#main-container {
+  margin-top: 80px;
 }
 
 .navbar-avatar-img {
@@ -330,7 +345,7 @@ h2 {
     border-bottom: 1px dashed #ccc;
     width: 100%;
     white-space: nowrap;
-    overflow:hidden;
+    overflow: hidden;
     text-overflow: ellipsis;
 
     .hot_num {
@@ -1030,4 +1045,34 @@ General list for item with image
 .thinkox-break-word {
   word-break: break-all;
   word-wrap: break-word;
+}
+
+.post_read {
+  i {
+    margin-right: .3em;
+  }
+
+  display: inline-block;
+  min-width: 4em;
+}
+
+.post_comment {
+  i {
+    margin-right: .3em;
+  }
+  display: inline-block;
+  min-width: 4em;
+  margin-right: -1em;
+}
+
+
+
+
+.white-popup {
+  position: relative;
+  background: #FFF;
+  padding: 20px;
+  width: auto;
+  max-width: 500px;
+  margin: 20px auto;
 }

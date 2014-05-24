@@ -1,3 +1,6 @@
+.navbar-logo {
+  padding-left: 0;
+}
 body {
   font-family: "Microsoft YaHei";
 }
@@ -21,6 +24,13 @@ a:hover {
   box-shadow: 0 0 5px #cccccc;
   -moz-box-shadow: 0 0 5px #CCCCCC;
   -khtml-box-shadow: 0 0 5px #CCCCCC;
+}
+.boxShadowBorder {
+  box-shadow: 0 0 5px #cccccc;
+  -moz-box-shadow: 0 0 5px #CCCCCC;
+  -khtml-box-shadow: 0 0 5px #CCCCCC;
+  border: 1px solid #dddddd;
+  border-radius: 0.2em;
 }
 /*头衔*/
 .rank_html {
@@ -56,6 +66,9 @@ a:hover {
 }
 .navbar-nav > li > a {
   line-height: 28px;
+}
+#main-container {
+  margin-top: 80px;
 }
 .navbar-avatar-img {
   border-radius: 100%;
@@ -259,7 +272,6 @@ h2 {
   padding: 0;
   margin-bottom: .5em;
   /*border-bottom: solid 2px #ccc;*/
-
   padding-bottom: .5em;
 }
 .forum-detail-content-text {
@@ -884,4 +896,27 @@ General list for item with image
 .thinkox-break-word {
   word-break: break-all;
   word-wrap: break-word;
+}
+.post_read {
+  display: inline-block;
+  min-width: 4em;
+}
+.post_read i {
+  margin-right: .3em;
+}
+.post_comment {
+  display: inline-block;
+  min-width: 4em;
+  margin-right: -1em;
+}
+.post_comment i {
+  margin-right: .3em;
+}
+.white-popup {
+  position: relative;
+  background: #FFF;
+  padding: 20px;
+  width: auto;
+  max-width: 500px;
+  margin: 20px auto;
 }
